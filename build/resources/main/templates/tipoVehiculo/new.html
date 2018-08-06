@@ -1,0 +1,112 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<head th:include="fragmentos/head :: head" th:remove="tag" />
+<title>Gestionar usuarios | SIGREC</title>
+
+<body>
+    <!-- WRAPPER -->
+    <div id="wrapper">
+        <!-- NAVBAR -->
+        <div th:include="fragmentos/navbar :: nav_bar"></div>
+        <!-- END NAVBAR -->
+        <!-- LEFT SIDEBAR -->
+        <div th:include="fragmentos/sidebar :: side_bar"></div>
+        <!-- END LEFT SIDEBAR -->
+        <!-- MAIN -->
+        <div class="main">
+            <!-- MAIN CONTENT -->
+            <div class="main-content">
+                <div class="container-fluid">
+                    <div class="box">
+                        <div th:if="${message!=null}" class="alert alert-danger alert-dismissable">
+                            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                            <span th:text="${message}"></span>
+                        </div>
+                    </div>
+                    <h4 class="page-title" style="font-weight: 400;">Crear nuevo usuario</h4>
+                    <form th:action="@{/tipoVehiculo/create}" th:object="${tv}" method="post">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <!-- INPUTS -->
+                                <div class="panel">
+                                    <div class="panel-heading">
+                                        <h3 class="panel-title">Tipo de usuario</h3>
+                                    </div>
+                                    <div class="panel-body">
+                                        <div class="col-md-12">
+                                            <br>
+                                            <h4 class="panel-title">Tipo:</h4>
+                                            <br>
+                                            <!-- <span class="label label-primary">Desde</span><br> -->
+                                            <select class="form-control" name="role">
+                                                <option value="">Seleccionar...</option>
+                                               <!-- <option th:each="r : ${roles}" th:value="${r.id}" th:text="${r.name}"></option>-->
+                                            </select>
+                                            <br>
+                                        </div>
+                                        <br>
+                                    </div>
+                                </div>
+                                <!-- END INPUTS -->
+                            </div>
+                            <div class="col-md-6">
+                                <!-- INPUTS -->
+                                <div class="panel">
+                                    <div class="panel-heading">
+                                        <h3 class="panel-title">Nuevo usuario</h3>
+                                    </div>
+                                    <div class="panel-body">
+                                        <div class="col-md-12">
+                                            <div class="input-group">
+                                                <span class="input-group-addon">Usuario:</span>
+                                                <input class="form-control" type="text" th:field="*{tipoVehiculo}" required>
+                                            </div>
+                                            <br>
+                                        </div>
+                                        <br>
+                                    </div>
+                                </div>
+                                <!-- END INPUTS -->
+                            </div>
+                            <div class="col-md-6">
+                                <div class="col-md-12">
+                                    <button type="submit" class="btn btn-primary">Crear</button>
+                                </div>
+                                <!-- END INPUTS -->
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!-- END MAIN CONTENT -->
+        </div>
+        <!-- END MAIN -->
+        <div class="clearfix"></div>
+        <footer>
+            <div class="container-fluid">
+                <p class="copyright">&copy; 2017
+                    <a href="" target="_blank">SIGREC</a>
+                </p>
+            </div>
+        </footer>
+    </div>
+    <!-- END WRAPPER -->
+    <!-- Javascript
+<script src="assets/vendor/jquery/jquery.min.js"></script>
+<script src="assets/vendor/bootstrap/js/bootstrap.min.js"></script>
+<script src="assets/vendor/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+<script src="assets/scripts/klorofil-common.js"></script>-->
+    <div th:include="fragmentos/scripts :: scripts"></div>
+    <script>
+        function eliminarUsuario(id) {
+            var respuesta = confirm("¿Realmente desea eliminar este Usuario?");
+            if (respuesta == true)
+                window.location = "eliminarUsuario/" + id;
+            else
+                return 0;
+        }
+    </script>
+</body>
+
+</html>
