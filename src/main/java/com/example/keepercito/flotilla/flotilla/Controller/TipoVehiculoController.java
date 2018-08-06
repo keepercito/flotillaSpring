@@ -72,9 +72,10 @@ public class TipoVehiculoController{
     }
 
     @RequestMapping(value="/delete/{id}", method=RequestMethod.POST)
-    public String delete(@ModelAttribute("id")TipoVehiculo id){
+    public RedirectView delete(@ModelAttribute("id")TipoVehiculo id, RedirectAttributes attributes){
         tipoVehiculoService.deleteTipoVehiculo(id);
-        return "redirect:/tipoVehiculo/show";
+        attributes.addFlashAttribute("message", "Registro se eliminó con exito!");
+        return new RedirectView("/tipoVehiculo/show");
     }
     
 }

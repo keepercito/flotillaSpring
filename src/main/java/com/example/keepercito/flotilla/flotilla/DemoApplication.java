@@ -1,5 +1,6 @@
 package com.example.keepercito.flotilla.flotilla;
 
+import com.example.keepercito.flotilla.flotilla.Services.TipoMantenimientoService;
 import com.example.keepercito.flotilla.flotilla.Services.TipoVehiculoService;
 
 import org.springframework.boot.SpringApplication;
@@ -12,6 +13,11 @@ public class DemoApplication {
 	@Bean
 	public TipoVehiculoService tipoVehiculoService(){
 		return new TipoVehiculoService();
+	}
+
+	@Bean
+	public TipoMantenimientoService tipoMantenimientoService(){
+		return new TipoMantenimientoService();
 	}
 
 	public static void main(String[] args) {

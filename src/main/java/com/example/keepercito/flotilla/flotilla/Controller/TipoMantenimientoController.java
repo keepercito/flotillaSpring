@@ -68,13 +68,14 @@ public class TipoMantenimientoController{
         tm1.setTipoMant(tm.getTipoMant());
         tipoMantenimientoService.saveTipoMantenimiento(tm1);
         attributes.addFlashAttribute("message", "Registro se guardo con exito!");
-        return new RedirectView("/TipoMantenimiento/show");
+        return new RedirectView("/tipoMantenimiento/show");
     }
 
     @RequestMapping(value="/delete/{id}", method=RequestMethod.POST)
-    public String delete(@ModelAttribute("id")TipoMantenimiento id){
+    public RedirectView delete(@ModelAttribute("id")TipoMantenimiento id, RedirectAttributes attributes){
         tipoMantenimientoService.deleteTipoMantenimiento(id);
-        return "redirect:/tipoMantenimiento/show";
+        attributes.addFlashAttribute("message", "Registro se eliminó con exito!");
+        return new RedirectView("/tipoMantenimiento/show");
     }
     
 }

@@ -18,7 +18,7 @@ public class UnidadService{
     }
 
     public List<Unidad> getAllUnidadAsc(){
-        return unidadRepository.findAllByOrderByIdAsc();
+        return unidadRepository.findAllByOrderByIdUnidadAsc();
     } 
 
     public Unidad getUnidad(int id){

@@ -10,5 +10,5 @@ import org.springframework.stereotype.Repository;
 @Repository("unidadRepository")
 public interface UnidadRepository extends JpaRepository<Unidad,Integer>{
     Unidad findByNombreUnidad(String nombre);
-    List<Unidad> findAllByOrderByIdAsc();
+    List<Unidad> findAllByOrderByIdUnidadAsc();
 }
