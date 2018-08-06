@@ -1,5 +1,6 @@
 package com.example.keepercito.flotilla.flotilla;
 
+import com.example.keepercito.flotilla.flotilla.Services.MarcaService;
 import com.example.keepercito.flotilla.flotilla.Services.TipoMantenimientoService;
 import com.example.keepercito.flotilla.flotilla.Services.TipoVehiculoService;
 
@@ -18,6 +19,11 @@ public class DemoApplication {
 	@Bean
 	public TipoMantenimientoService tipoMantenimientoService(){
 		return new TipoMantenimientoService();
+	}
+	
+	@Bean
+	public MarcaService marcaService(){
+		return new MarcaService();
 	}
 
 	public static void main(String[] args) {

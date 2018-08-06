@@ -39,15 +39,15 @@
                                         <tr>
                                             <th>Tipo de Vehiculos</th>
                                         </tr>
-                                        </thead>
                                         <tbody>
                                         <tr th:each="m : ${marcas}">
-                                            <td th:text="${m.marca}"></td>
+                                            <td th:text="${m.marca}"></td>                                        </thead>
+
                                             <th>
-                                                <a th:href="@{/marca/edit/{id}(id=${t.id})}">
+                                                <a th:href="@{/marca/edit/{id}(id=${m.id})}">
                                                     <button type="button" class="btn btn-warning"><i class="fa fa-pencil" aria-hidden="true"></i></button>
                                                 </a>
-                                                <form th:action="@{'/marca/delete/'+${m.idMarca}}" method="POST" th:object="${m}" class="inline">
+                                                <form th:action="@{'/marca/delete/'+${m.id}}" method="POST" th:object="${m}" class="inline">
                                                     <button type="submit"  onclick="return confirm('Seguro que desea eliminar esta marca?')" class="btn btn-danger"><i class="fa fa-trash-o"></i></button>
                                                 </form>
                                             </th>
