@@ -65,7 +65,8 @@
                                         </div>
                                         <div class="col-md-12">
                                             <div class="input-group">
-                                                <input class="form-control" type="text" th:field="*{descripcion}" required>
+                                                <!--<input class="form-control" type="" th:field="*{descripcion}" required>-->
+                                                <textarea class="form-control" th:field="*{descripcion}" cols="30" rows="10"></textarea>
                                             </div>
                                             <br>
                                         </div>
@@ -87,14 +88,7 @@
             <!-- END MAIN CONTENT -->
         </div>
         <!-- END MAIN -->
-        <div class="clearfix"></div>
-        <footer>
-            <div class="container-fluid">
-                <p class="copyright">&copy; 2017
-                    <a href="" target="_blank">SIGREC</a>
-                </p>
-            </div>
-        </footer>
+        <div th:include="fragmentos/footer :: footer"></div>
     </div>
     <!-- END WRAPPER -->
     <div th:include="fragmentos/scripts :: scripts"></div>

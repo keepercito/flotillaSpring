@@ -27,7 +27,7 @@
                     <h4 class="page-title" style="font-weight: 400;">Crear nuevo usuario</h4>
                     <form th:action="@{/tipoMantenimiento/update}" th:object="${tm}" method="post">
                         <div class="row">
-                            <div class="col-md-6">
+                            <div class="col-md-6 col-md-offset-3">
                                 <!-- INPUTS -->
                                 <div class="panel">
                                     <div class="panel-heading">
@@ -46,13 +46,9 @@
                                     </div>
                                 </div>
                                 <!-- END INPUTS -->
+                                <button type="submit" class="btn btn-primary">Crear</button>
                             </div>
-                            <div class="col-md-6">
-                                <div class="col-md-12">
-                                    <button type="submit" class="btn btn-primary">Crear</button>
-                                </div>
                                 <!-- END INPUTS -->
-                            </div>
                         </div>
                     </form>
                 </div>
@@ -60,31 +56,10 @@
             <!-- END MAIN CONTENT -->
         </div>
         <!-- END MAIN -->
-        <div class="clearfix"></div>
-        <footer>
-            <div class="container-fluid">
-                <p class="copyright">&copy; 2017
-                    <a href="" target="_blank">SIGREC</a>
-                </p>
-            </div>
-        </footer>
+        <div th:include="fragmentos/footer :: footer"></div>
     </div>
     <!-- END WRAPPER -->
-    <!-- Javascript
-<script src="assets/vendor/jquery/jquery.min.js"></script>
-<script src="assets/vendor/bootstrap/js/bootstrap.min.js"></script>
-<script src="assets/vendor/jquery-slimscroll/jquery.slimscroll.min.js"></script>
-<script src="assets/scripts/klorofil-common.js"></script>-->
     <div th:include="fragmentos/scripts :: scripts"></div>
-    <script>
-        function eliminarUsuario(id) {
-            var respuesta = confirm("¿Realmente desea eliminar este Usuario?");
-            if (respuesta == true)
-                window.location = "eliminarUsuario/" + id;
-            else
-                return 0;
-        }
-    </script>
 </body>
 
 </html>
