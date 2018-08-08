@@ -26,6 +26,10 @@ public class VehiculoService{
     public List<Vehiculo> getByTipo(TipoVehiculo tv){
         return vehiculoRepository.findAllByIdTipoVehiculo(tv);
     }
+    
+    public List<Vehiculo> getAllVehiculosAsc(){
+        return vehiculoRepository.findAllByOrderByIdVehiculoAsc();
+    }
 
     public Vehiculo getVehiculo(int id){
         Optional<Vehiculo> v = vehiculoRepository.findById(id);

@@ -24,14 +24,14 @@
                         <span th:text="${message}"></span>
                     </div>
                 </div>
-                <h4 class="page-title" style="font-weight: 400;">Crear nuevo usuario</h4>
+                <h4 class="page-title" style="font-weight: 400;">Listado de Marcas</h4>
                 <div class="row">
                     <div class="row">
                         <div class="col-md-12">
                             <!-- BORDERED TABLE -->
                             <div class="panel">
                                 <div class="panel-heading">
-                                    <h3 class="panel-title">Personal registrado</h3>
+                                    <h3 class="panel-title">Marcas registradas</h3>
                                 </div>
                                 <div class="panel-body">
                                     <table class="table table-bordered">
@@ -47,9 +47,11 @@
                                                 <a th:href="@{/marca/edit/{id}(id=${m.id})}">
                                                     <button type="button" class="btn btn-warning"><i class="fa fa-pencil" aria-hidden="true"></i></button>
                                                 </a>
-                                                <form th:action="@{'/marca/delete/'+${m.id}}" method="POST" th:object="${m}" class="inline">
-                                                    <button type="submit"  onclick="return confirm('Seguro que desea eliminar esta marca?')" class="btn btn-danger"><i class="fa fa-trash-o"></i></button>
-                                                </form>
+                                                <a th:href="@{/marca/delete/{id}(id=${u.id})}">
+                                                    <button type="button" class="btn btn-danger" onclick="return confirm('Seguro que desea eliminar esta marca?')">
+                                                        <i class="fa fa-trash-o" aria-hidden="true"></i>
+                                                    </button>
+                                                </a>
                                             </th>
                                         </tr>
                                         </tbody>
@@ -69,15 +71,6 @@
 </div>
 <!-- END WRAPPER -->
 <div th:include="fragmentos/scripts :: scripts" ></div>
-<script>
-    function eliminarUsuario(id){
-      var respuesta=confirm("¿Realmente desea eliminar este Usuario?");
-      if(respuesta==true)
-        window.location="delete/"+id;
-      else
-      	return 0;
-}
-</script>
 </body>
 
 </html>

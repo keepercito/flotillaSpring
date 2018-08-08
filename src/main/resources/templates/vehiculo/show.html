@@ -24,35 +24,45 @@
                         <span th:text="${message}"></span>
                     </div>
                 </div>
-                <h4 class="page-title" style="font-weight: 400;">Listado de Tipos de Vehiculo</h4>
+                <h4 class="page-title" style="font-weight: 400;">Listado de Vehiculos</h4>
                 <div class="row">
                     <div class="row">
                         <div class="col-md-12">
                             <!-- BORDERED TABLE -->
                             <div class="panel">
                                 <div class="panel-heading">
-                                    <h3 class="panel-title">Tipos de Vehiculo registrado</h3>
+                                    <h3 class="panel-title">Vehiculos registrado</h3>
                                 </div>
                                 <div class="panel-body">
                                     <table class="table table-bordered">
                                         <thead>
                                         <tr>
-                                            <th>Tipo de Vehiculos</th>
+                                            <th>Nombre Vehiculo</th>
+                                            <th>Numero Chasis</th>
+                                            <th>Numero Motor</th>
+                                            <th>Placa</th>
+                                            <th>Marca</th>
+                                            <th>Tipo Vehiculo</th>
                                         </tr>
                                         </thead>
                                         <tbody>
-                                        <tr th:each="t : ${tipos}">
-                                            <td th:text="${t.tipoVehiculo}"></td>
-                                            <th>
-                                                <a th:href="@{/tipoVehiculo/edit/{id}(id=${t.id})}">
+                                            <tr th:each="v : ${vehiculos}">
+                                            <td th:text="${v.nombre}"></td>                                       
+                                            <td th:text="${v.numeroChasis}"></td>
+                                            <td th:text="${v.numeroMotor}"></td>
+                                            <td th:text="${v.placa}"></td>
+                                            <td th:text="${v.idMarca.getMarca()}"></td>
+                                            <td th:text="${v.idTipoVehiculo.getTipoVehiculo()}"></td>
+                                            <td>
+                                                <a th:href="@{/vehiculo/edit/{id}(id=${v.idVehiculo})}">
                                                     <button type="button" class="btn btn-warning"><i class="fa fa-pencil" aria-hidden="true"></i></button>
                                                 </a>
-                                                <a th:href="@{/tipoVehiculo/delete/{id}(id=${t.id})}">
-                                                    <button type="button" class="btn btn-danger" onclick="return confirm('Seguro que desea eliminar el tipo de vehiculo?')">
+                                                <a th:href="@{/vehiculo/delete/{id}(id=${t.idVehiculo})}">
+                                                    <button type="button" class="btn btn-danger" onclick="return confirm('Seguro que desea eliminar el vehiculo?')">
                                                         <i class="fa fa-trash-o" aria-hidden="true"></i>
                                                     </button>
                                                 </a>
-                                            </th>
+                                            </td>
                                         </tr>
                                         </tbody>
                                     </table>
@@ -71,6 +81,15 @@
 </div>
 <!-- END WRAPPER -->
 <div th:include="fragmentos/scripts :: scripts" ></div>
+<script>
+    function eliminarUsuario(id){
+      var respuesta=confirm("¿Realmente desea eliminar este Vehiculo?");
+      if(respuesta==true)
+        window.location="delete/"+id;
+      else
+      	return 0;
+}
+</script>
 </body>
 
 </html>

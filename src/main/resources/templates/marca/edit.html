@@ -24,19 +24,19 @@
                             <span th:text="${message}"></span>
                         </div>
                     </div>
-                    <h4 class="page-title" style="font-weight: 400;">Crear nuevo usuario</h4>
+                    <h4 class="page-title" style="font-weight: 400;">Actualizar Marca</h4>
                     <form th:action="@{/marca/update}" th:object="${m}" method="post">
                         <div class="row">
                             <div class="col-md-6 col-md-offset-3">
                                 <!-- INPUTS -->
                                 <div class="panel">
                                     <div class="panel-heading">
-                                        <h3 class="panel-title">Editar Tipo Vehiculo</h3>
+                                        <h3 class="panel-title">atos de la marca</h3>
                                     </div>
                                     <div class="panel-body">
                                         <div class="col-md-12">
                                             <div class="input-group">
-                                                <span class="input-group-addon">Tipo Vehiculo:</span>
+                                                <span class="input-group-addon">Marca:</span>
                                                 <input class="form-control" type="text" th:field="*{marca}" th:value="${m.marca}" required>
                                                 <input type="hidden" th:field="*{id}" th:value="${m.id}">
                                             </div>
@@ -46,7 +46,7 @@
                                     </div>
                                 </div>
                                 <!-- END INPUTS -->
-                                <button type="submit" class="btn btn-primary">Crear</button>
+                                <button type="submit" class="btn btn-primary">Actualizar</button>
                             </div>
                                 <!-- END INPUTS -->
                         </div>

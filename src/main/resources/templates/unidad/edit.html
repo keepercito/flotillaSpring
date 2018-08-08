@@ -24,14 +24,14 @@
                             <span th:text="${message}"></span>
                         </div>
                     </div>
-                    <h4 class="page-title" style="font-weight: 400;">Crear nuevo usuario</h4>
+                    <h4 class="page-title" style="font-weight: 400;">Actualizar Unidad</h4>
                     <form th:action="@{/unidad/update}" th:object="${u}" method="post">
                         <div class="row">
                             <div class="col-md-6 col-md-offset-3">
                                 <!-- INPUTS -->
                                 <div class="panel">
                                     <div class="panel-heading">
-                                        <h3 class="panel-title">Editar Unidad</h3>
+                                        <h3 class="panel-title">Datos Unidad</h3>
                                     </div>
                                     <div class="panel-body">
                                         <div class="col-md-12">
@@ -44,8 +44,7 @@
                                         </div>
                                         <div class="col-md-12">
                                             <div class="input-group">
-                                                <span class="input-group-addon">Tipo Vehiculo:</span>
-                                                <!--<input class="form-control" type="text" th:field="*{descripcion}" th:value="${u.descripcion}" required>-->
+                                                <span class="input-group-addon">Descripción:</span>
                                                 <textarea class="form-control" th:field="*{descripcion}" th:value="${u.descripcion}" cols="30" rows="10"></textarea>
                                             </div>
                                             <br>
@@ -55,11 +54,6 @@
                                 </div>
                                 <!-- END INPUTS -->
                                 <button type="submit" class="btn btn-primary">Crear</button>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="col-md-12">
-                                </div>
-                                <!-- END INPUTS -->
                             </div>
                         </div>
                     </form>

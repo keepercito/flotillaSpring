@@ -1,0 +1,124 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<head th:include="fragmentos/head :: head" th:remove="tag" />
+<title>Gestionar usuarios | SIGREC</title>
+
+<body>
+    <!-- WRAPPER -->
+    <div id="wrapper">
+        <!-- NAVBAR -->
+        <div th:include="fragmentos/navbar :: nav_bar"></div>
+        <!-- END NAVBAR -->
+        <!-- LEFT SIDEBAR -->
+        <div th:include="fragmentos/sidebar :: side_bar"></div>
+        <!-- END LEFT SIDEBAR -->
+        <!-- MAIN -->
+        <div class="main">
+            <!-- MAIN CONTENT -->
+            <div class="main-content">
+                <div class="container-fluid">
+                    <div class="box">
+                        <div th:if="${message!=null}" class="alert alert-danger alert-dismissable">
+                            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                            <span th:text="${message}"></span>
+                        </div>
+                    </div>
+                    <h4 class="page-title" style="font-weight: 400;">Editar Vehiculo</h4>
+                    <form th:action="@{/vehiculo/update}" th:object="${v}" method="post">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <!-- INPUTS -->
+                                <div class="panel">
+                                    <div class="panel-body">
+                                        <div class="col-md-12">
+                                            <br>
+                                            <h4 class="panel-title">Tipo de Vehiculo:</h4>
+                                            <br>
+                                            <select class="form-control" name="tipoVehiculo">
+                                                <option value="">Seleccionar...</option>
+                                                <option th:each="t : ${tipos}" th:value="${t.id}" th:text="${t.tipoVehiculo}" 
+                                                th:selected="${v.idTipoVehiculo.equals(t)}"></option>
+                                            </select>
+                                            <br>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <br>
+                                            <h4 class="panel-title">Marca:</h4>
+                                            <br>
+                                            <select class="form-control" name="marca">
+                                                <option value="">Seleccionar...</option>
+                                                <option th:each="m : ${marcas}" th:value="${m.id}" th:text="${m.marca}"
+                                                 th:selected="${v.idMarca.equals(m)}"></option>
+                                            </select>
+                                            <br>
+                                        </div>
+                                        <br>
+                                    </div>
+                                </div>
+                                <!-- END INPUTS -->
+                            </div>
+                            <div class="col-md-6">
+                                <!-- INPUTS -->
+                                <div class="panel">
+                                    <div class="panel-heading">
+                                        <h3 class="panel-title">Datos del Vehiculo</h3>
+                                    </div>
+                                    <div class="panel-body">
+                                        <div class="col-md-12">
+                                            <div class="input-group">
+                                                <span class="input-group-addon">nombre:</span>
+                                                <input class="form-control" type="text" th:field="*{nombre}" th:value="v.nombre" required>
+                                            </div>
+                                            <br>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="input-group">
+                                                <span class="input-group-addon">Numero Chasis:</span>
+                                                <input class="form-control" type="text" th:field="*{numeroChasis}" maxlength="15"
+                                                th:value="${v.numeroChasis}" required>
+                                            </div>
+                                            <br>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="input-group">
+                                                <span class="input-group-addon">Numero Motor:</span>
+                                                <input class="form-control" type="text" th:field="*{numeroMotor}" maxlength="15" 
+                                                th:value="${v.numeroMotor}" required>
+                                            </div>
+                                            <br>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="input-group">
+                                                <span class="input-group-addon">Placa:</span>
+                                                <input class="form-control" type="text" th:field="*{placa}" th:value="${v.placa}" required>
+                                                <input class="form-control" type="hidden" th:field="*{idVehiculo}" th:value="${v.idVehiculo}" required>
+                                            </div>
+                                            <br>
+                                        </div>
+                                        <br>
+                                    </div>
+                                </div>
+                                <!-- END INPUTS -->
+                            </div>
+                            <div class="col-md-6">
+                                <div class="col-md-12">
+                                    <button type="submit" class="btn btn-primary">Actualizar</button>
+                                </div>
+                                <!-- END INPUTS -->
+                            </div>
+                                <!-- END INPUTS -->
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!-- END MAIN CONTENT -->
+        </div>
+        <!-- END MAIN -->
+        <div th:include="fragmentos/footer :: footer"></div>
+    </div>
+    <!-- END WRAPPER -->
+    <div th:include="fragmentos/scripts :: scripts"></div>
+</body>
+
+</html>

@@ -70,7 +70,7 @@ public class UnidadController{
         return new RedirectView("/unidad/show");
     }
 
-    @RequestMapping(value = "/delete/{id}", method = RequestMethod.POST)
+    @RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)
     public RedirectView delete(@ModelAttribute("id") Unidad id, RedirectAttributes attributes) {
         unidadService.deleteUnidad(id);
         attributes.addFlashAttribute("message", "Registro se eliminó con exito!");

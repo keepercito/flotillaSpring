@@ -47,9 +47,9 @@
                                                 <a th:href="@{/unidad/edit/{id}(id=${u.idUnidad})}">
                                                     <button type="button" class="btn btn-warning"><i class="fa fa-pencil" aria-hidden="true"></i></button>
                                                 </a>
-                                                <form th:action="@{'/unidad/delete/'+${u.idUnidad}}" method="POST" th:object="${u}" class="inline">
-                                                    <button type="submit"  onclick="return confirm('Seguro que desea eliminar esta Unidad?')" class="btn btn-danger"><i class="fa fa-trash-o"></i></button>
-                                                </form>
+                                                <a th:href="@{/unidad/delete/{id}(id=${u.idUnidad})}">
+                                                    <button type="button" class="btn btn-danger" onclick="return confirm('Seguro que desea eliminar esta Unidad?')"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
+                                                </a>
                                             </th>
                                         </tr>
                                         </tbody>
@@ -69,15 +69,6 @@
 </div>
 <!-- END WRAPPER -->
 <div th:include="fragmentos/scripts :: scripts" ></div>
-<script>
-    function eliminarUsuario(id){
-      var respuesta=confirm("¿Realmente desea eliminar este Usuario?");
-      if(respuesta==true)
-        window.location="delete/"+id;
-      else
-      	return 0;
-}
-</script>
 </body>
 
 </html>

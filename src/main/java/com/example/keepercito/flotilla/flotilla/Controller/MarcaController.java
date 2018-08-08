@@ -70,7 +70,7 @@ public class MarcaController{
         return new RedirectView("/marca/show");
     }
 
-    @RequestMapping(value = "/delete/{id}", method = RequestMethod.POST)
+    @RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)
     public RedirectView delete(@ModelAttribute("id") Marca id, RedirectAttributes attributes) {
         marcaService.deleteMarca(id);
         attributes.addFlashAttribute("message", "Registro se eliminó con exito!");

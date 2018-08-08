@@ -68,7 +68,7 @@ public class TipoMantenimientoController{
         return new RedirectView("/tipoMantenimiento/show");
     }
 
-    @RequestMapping(value="/delete/{id}", method=RequestMethod.POST)
+    @RequestMapping(value="/delete/{id}", method=RequestMethod.GET)
     public RedirectView delete(@ModelAttribute("id")TipoMantenimiento id, RedirectAttributes attributes){
         tipoMantenimientoService.deleteTipoMantenimiento(id);
         attributes.addFlashAttribute("message", "Registro se eliminó con exito!");
