@@ -24,7 +24,9 @@
                         <span th:text="${message}"></span>
                     </div>
                 </div>
-                <h4 class="page-title" style="font-weight: 400;">Listado de Vehiculos</h4>
+                <a th:href="@{/vehiculo/new}">
+                    <h4 class="page-title" style="font-weight: 400;">Ingresar nuevo Vehiculo</h4>
+                </a>
                 <div class="row">
                     <div class="row">
                         <div class="col-md-12">
@@ -57,7 +59,7 @@
                                                 <a th:href="@{/vehiculo/edit/{id}(id=${v.idVehiculo})}">
                                                     <button type="button" class="btn btn-warning"><i class="fa fa-pencil" aria-hidden="true"></i></button>
                                                 </a>
-                                                <a th:href="@{/vehiculo/delete/{id}(id=${t.idVehiculo})}">
+                                                <a th:href="@{/vehiculo/delete/{id}(id=${v.idVehiculo})}">
                                                     <button type="button" class="btn btn-danger" onclick="return confirm('Seguro que desea eliminar el vehiculo?')">
                                                         <i class="fa fa-trash-o" aria-hidden="true"></i>
                                                     </button>

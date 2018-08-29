@@ -24,7 +24,9 @@
                         <span th:text="${message}"></span>
                     </div>
                 </div>
-                <h4 class="page-title" style="font-weight: 400;">Listado de Marcas</h4>
+                <a th:href="@{/marca/new}">
+                    <h4 class="page-title" style="font-weight: 400;">Ingrese una nueva Marca</h4>
+                </a>
                 <div class="row">
                     <div class="row">
                         <div class="col-md-12">
@@ -36,18 +38,19 @@
                                 <div class="panel-body">
                                     <table class="table table-bordered">
                                         <thead>
-                                        <tr>
-                                            <th>Tipo de Vehiculos</th>
-                                        </tr>
+                                            <tr>
+                                                <th>Tipo de Vehiculos</th>
+                                            </tr>
+                                        </thead>
                                         <tbody>
                                         <tr th:each="m : ${marcas}">
-                                            <td th:text="${m.marca}"></td>                                        </thead>
+                                            <td th:text="${m.marca}"></td>                                        
 
                                             <th>
                                                 <a th:href="@{/marca/edit/{id}(id=${m.id})}">
                                                     <button type="button" class="btn btn-warning"><i class="fa fa-pencil" aria-hidden="true"></i></button>
                                                 </a>
-                                                <a th:href="@{/marca/delete/{id}(id=${u.id})}">
+                                                <a th:href="@{/marca/delete/{id}(id=${m.id})}">
                                                     <button type="button" class="btn btn-danger" onclick="return confirm('Seguro que desea eliminar esta marca?')">
                                                         <i class="fa fa-trash-o" aria-hidden="true"></i>
                                                     </button>
